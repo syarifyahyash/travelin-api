@@ -1,33 +1,31 @@
-const { addBookHandler , getAllBooksHandler, getBookByIdHandler, editBookByIdHandler, deleteBookByIdHandler } = require('./handler');
+const { addCultureHandler, getAllCulturesHandler, getCultureByIdHandler, editCultureByIdHandler, deleteCultureByIdHandler } = require('./handler');
 
 const routes = [
   {
     method: 'POST',
-    path: '/books',
-    handler: addBookHandler,
+    path: '/cultures',
+    handler: addCultureHandler,
   },
   {
     method: 'GET',
-    path: '/books',
-    handler: getAllBooksHandler,
+    path: '/cultures',
+    handler: getAllCulturesHandler,
   },
   {
     method: 'GET',
-    path: '/books/{bookId}',
-    handler: getBookByIdHandler,
+    path: '/cultures/{cultureId}',
+    handler: getCultureByIdHandler,
   },
   {
     method: 'PUT',
-    path: '/books/{bookId}',
-    handler: editBookByIdHandler,
+    path: '/cultures/{cultureId}',
+    handler: editCultureByIdHandler,
   },
   {
     method: 'DELETE',
-    path: '/books/{bookId}',
-    handler: deleteBookByIdHandler,
+    path: '/cultures/{cultureId}',
+    handler: deleteCultureByIdHandler,
   },
 ];
 
 module.exports = routes;
-  
- module.exports = routes;
