@@ -21,3 +21,12 @@ model Culture {
   address     String @db.VarChar(50)
   image       String? @db.Text
 }
+
+model Tour {
+  id          Int  @id @default(autoincrement())
+  name        String @db.VarChar(100)
+  description String @db.Text
+  province    String @db.VarChar(50)
+  address     String @db.VarChar(50)
+  image       String? @db.Text
+}

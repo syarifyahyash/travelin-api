@@ -1,103 +1,103 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-const getAllCultures = async (req, res, next) => {
+const getAllTours = async (req, res, next) => {
   try {
-    const cultures = await prisma.culture.findMany();
+    const tours = await prisma.tour.findMany();
     res.json({
       status: 200,
-      message: 'Semua budaya berhasil ditampilkan!',
-      data: cultures
+      message: 'Semua pariwisata berhasil ditampilkan!',
+      data: tours
     });
   } catch (error) {
     next(error);
   }
 };
 
-const getCultureById = async (req, res, next) => {
+const getTourById = async (req, res, next) => {
   try {
-    const culture = await prisma.culture.findFirst({
+    const tour = await prisma.tour.findFirst({
       where:{
         id: parseInt(req.params.id)
       }
     });
-    if (culture) {
+    if (tour) {
       res.json({
         status: 200,
-        message: 'Budaya berhasil ditampilkan!',
-        data: culture
+        message: 'pariwisata berhasil ditampilkan!',
+        data: tour
       });
     } else {
-      res.status(404).json({ error: 'Budaya tidak ditemukan' });
+      res.status(404).json({ error: 'pariwisata tidak ditemukan' });
     }
   } catch (error) {
     next(error);
   }
 };
 
-const addCulture = async (req, res, next) => {
+const addTour = async (req, res, next) => {
   try {
     const { name, description, province, address } = req.body;
-    const newCulture = await prisma.culture.create({
+    const newTour = await prisma.tour.create({
       data: { name, description, province, address },
     });
     res.status(201).json({
       status: 201,
-      message: 'Budaya berhasil ditambahkan!',
-      data: newCulture
+      message: 'pariwisata berhasil ditambahkan!',
+      data: newTour
     });
   } catch (error) {
     next(error);
   }
 };
 
-const updateCulture = async (req, res, next) => {
+const updateTour = async (req, res, next) => {
   try {
     const { name, description, province, address, image } = req.body;
 
-    const updatedCulture = await prisma.culture.update({
+    const updatedTour = await prisma.tour.update({
       where: { id: parseInt(req.params.id) },
       data: { name, description, province, address, image },
     });
     res.json({
       status: 200,
-      message: 'Budaya berhasil diperbarui!',
-      data: updatedCulture
+      message: 'pariwisata berhasil diperbarui!',
+      data: updatedTour
     });
   } catch (error) {
     next(error);
   }
 };
 
-const updateCultureImage = async (req, res, next) => {
+const updateTourImage = async (req, res, next) => {
   try {
     const file = req.file;
-    const updatedCulture = await prisma.culture.update({
+    const updatedTour = await prisma.tour.update({
       where: { id: parseInt(req.params.id)  },
       data: { image: file.path },
     });
     res.json({
       status: 200,
-      message: 'Gambar budaya berhasil diupdate!',
-      data: updatedCulture
+      message: 'Gambar pariwisata berhasil diupdate!',
+      data: updatedTour
     });
   } catch (error) {
     next(error);
   }
 };
 
-const deleteCulture = async (req, res, next) => {
+const deleteTour = async (req, res, next) => {
   try {
-    await prisma.culture.delete({
+    await prisma.tour.delete({
       where: { id: parseInt(req.params.id)  },
     });
     res.json({
       status: 200,
-      message: 'Budaya berhasil dihapus!'
+      message: 'pariwisata berhasil dihapus!'
     });
   } catch (error) {
     next(error);
   }
 };
 
-module.exports = { getAllCultures, getCultureById, addCulture, updateCulture, updateCultureImage, deleteCulture };
+module.exports = { getAllTours, getTourById, addTour, updateTour, updateTourImage, deleteTour};
