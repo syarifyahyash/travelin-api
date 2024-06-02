@@ -307,7 +307,5 @@ Kontribusi sangat terbuka! Silakan buat pull request atau buka issue untuk disku
 ## Lisensi
 
 MIT License
-```
 
 Dokumentasi ini memberikan informasi yang jelas mengenai setiap endpoint yang tersedia dalam API, cara instalasi, penggunaan, serta cara berkontribusi.
-
