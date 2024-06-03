@@ -18,6 +18,9 @@ router.get('/tours', getAllTours);
 router.get('/tours/:id', getTourById);
 router.put('/tours/:id', updateTour);
 router.put('/tours/image/:id', upload.single('image'), updateTourImage);
+router.get('/tours/image/:image', (req, res) => {
+  res.sendFile(`${process.cwd()}/images/${req.params.image}`);
+});
 router.delete('/tours/:id', deleteTour);
 
 module.exports = router;

@@ -18,6 +18,9 @@ router.get('/cultures', getAllCultures);
 router.get('/cultures/:id', getCultureById);
 router.put('/cultures/:id', updateCulture);
 router.put('/cultures/image/:id', upload.single('image'), updateCultureImage);
+router.get('/cultures/image/:image', (req, res) => {
+  res.sendFile(`${process.cwd()}/images/${req.params.image}`);
+});
 router.delete('/cultures/:id', deleteCulture);
 
 module.exports = router;
