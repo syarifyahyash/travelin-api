@@ -1,6 +1,6 @@
 # Travelin API
 
-Travelin API adalah API untuk mengelola data budaya dan pariwisata menggunakan Express.js dan ORM Prisma.
+Travelin API adalah API untuk mengelola data budaya dan pariwisata menggunakan Express.js dan ORM Prisma
 
 * [Persyaratan](#persyaratan)
 * [Instalasi](#instalasi)
