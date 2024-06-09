@@ -29,4 +29,5 @@ model Tour {
   province    String @db.VarChar(50)
   address     String @db.VarChar(50)
   image       String? @db.Text
+  map	      String? @db.Text
 }
