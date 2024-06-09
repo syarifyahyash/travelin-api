@@ -37,7 +37,7 @@ const getTourById = async (req, res, next) => {
 
 const addTour = async (req, res, next) => {
   try {
-    const { name, description, province, address } = req.body;
+    const { name, description, province, address, map } = req.body;
     const newTour = await prisma.tour.create({
       data: { name, description, province, address, map },
     });
@@ -53,7 +53,7 @@ const addTour = async (req, res, next) => {
 
 const updateTour = async (req, res, next) => {
   try {
-    const { name, description, province, address, image } = req.body;
+    const { name, description, province, address, image, map } = req.body;
 
     const updatedTour = await prisma.tour.update({
       where: { id: parseInt(req.params.id) },
