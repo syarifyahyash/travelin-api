@@ -39,7 +39,7 @@ Travelin API adalah API untuk mengelola data budaya dan pariwisata menggunakan E
 
 ### API URL
 ```
-http://54.255.130.64:5000/
+https://api1.simantappamekasan.com/
 ```
 
 ### Budaya (Cultures)
