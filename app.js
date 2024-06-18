@@ -18,3 +18,10 @@ const HOST = process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0';
 app.listen(PORT, HOST, () => {
   console.log(`Server berjalan pada ${HOST} port ${PORT}`);
 });
+
+app.get('/', (_req, res) => {
+  res.json({
+    status: 'success',
+    message: 'Selamat Datang di Travelin API!',
+  });
+});
